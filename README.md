@@ -12,3 +12,5 @@ CPIT Students Group work - Development of an E-Commerce website with PHP, JS and
 </ul>
 
 <h2>Minor features</h2>
+
+<a href-"http://www.htmlgoodies.com/beyond/php/article.php/3912211">PHp MVC Pattern</a>
