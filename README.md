@@ -11,6 +11,7 @@ CPIT Students Group work - Development of an E-Commerce website with PHP, JS and
 <li>Hayden McLaren</li>
 <li>Ross Woodgate</li>
 <li>Cainton Milroy</li>
+<li>Glen McNeur</li>
 <li>Dr Mike Lopez (Lecturer)</li>
 </ul>
 <h1>Feature list:</h1>
