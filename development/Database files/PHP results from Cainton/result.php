@@ -10,11 +10,12 @@ try {
 	echo "$nRows rows affected by schema creation<br/>";
 	echo 'Here are the people:<br/><br/>';
 	
-	$rows=$db->query("select product_id, product_name,product_description,product_image from product order by product_name");
+	$rows=$db->query("select product_id, category_id, product_name,product_description,product_image from product");
 	//var_dump($rows);
 	foreach($rows as $row){
 				echo '<tr>';
 				echo '<td>'.$row['product_id'].'</td>';
+				echo '<td>'.$row['category_id'].'</td>';
 				echo'<td>'.$row['product_name'].'</td>';
 				echo '<td>'.$row['product_description'].'</td>';
 				echo '<td>'.$row['product_image'].'</td>';

@@ -15,11 +15,11 @@
 		<table class="table table-striped table-bordered table-hover">
 			<tbody>
 				<tr>
-					<th>ID</th>
-			        <th>Name</th>
-			        <th>Age</th>
-			        <th>Gender</th>
-			        <th>Action</th>
+					<th>Product ID</th>
+			        <th>Category ID</th>
+			        <th>Product Name</th>
+			        <th>Description</th>
+			        <th>Imge</th>
 				</tr>
 				<?php include 'result.php'; ?>
 			</tbody>
