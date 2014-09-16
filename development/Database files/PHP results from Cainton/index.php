@@ -8,10 +8,10 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<h3>Students</h3>
+			<h3>Products</h3>
 		</div>
 		<div class="row">
-		<p><a class="btn btn-large btn-success" href="formcreate.php">Create</a></p>
+		<p><a class="btn btn-large btn-success" href="views/createProductView.php">Create</a></p>
 		<table class="table table-striped table-bordered table-hover">
 			<tbody>
 				<tr>
