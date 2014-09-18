@@ -16,25 +16,23 @@ try {
 	//var_dump($rows);
 	foreach($rows as $row){
         $id = $row['product_id'];
+
         print $id;
+                echo '<form action="views/editProductView.php" method="post">';
 				echo '<tr>';
 				echo '<td>'.$row['product_id'].'</td>';
 				echo '<td>'.$row['category_id'].'</td>';
-				echo'<td>'.$row['product_name'].'</td>';
+				echo '<td>'.$row['product_name'].'</td>';
 				echo '<td>'.$row['product_description'].'</td>';
 				echo '<td>'.$row['product_image'].'</td>';
-				echo '<td><a>Edit</a></td>';
-                echo '<td><form method="post">' .
+                echo '<td>' .
+                    '<input type="hidden" name="id_to_be_edited" value="' . $id . '" />' .
+                    '<input type="submit" name="edit_row" value="Edit"/></form>' .
+                    '</td>';
+                echo '<td><form action="views/deleteProductView.php" method="post">' .
                      '<input type="hidden" name="id_to_be_deleted" value="' . $id . '" />' .
                      '<input type="submit" name="delete_row" value="Delete"/></form>' .
 				     '</td></tr>';
-
-                if(isset($_POST['delete_row'])) {
-                    $id = $_POST['id_to_be_deleted'];
-                    mysqli_query($link, "DELETE FROM product WHERE product_id = $id");
-                    header("Location: .");
-                }
-
 	}
 } catch ( Exception $ex) {
 	echo 'Exception: '.$ex->getMessage();

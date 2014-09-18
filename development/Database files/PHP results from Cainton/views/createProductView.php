@@ -1,15 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Hayden
- * Date: 9/16/14
- * Time: 7:47 PM
- */
 
 $content =
     '<!doctype html><html>'.
     '<body>'.
-    '<form action="../models/createProductModel.php" method="POST">'.
+    '<p>Enter a new product into the database.</p>' .
+    '<form action="../controllers/createProductController.php" method="POST">'.
     '<label>Category id:</label><br/>'.
     '<input type="text" name="category_id"/><br/>'.
     '<label>Product name:</label><br/>'.
