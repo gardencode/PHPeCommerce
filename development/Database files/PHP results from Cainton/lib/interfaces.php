@@ -13,4 +13,16 @@ interface IDatabase {
 	function close();
 }
 
+interface IUri {
+	function getSite();
+	function getPart();
+	function getID();
+}
+
+interface IContext {
+	function getDB();
+	function getURI();
+	function getConfig();
+}
+
 ?>
