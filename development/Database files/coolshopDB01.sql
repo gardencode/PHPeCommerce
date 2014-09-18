@@ -62,7 +62,7 @@ insert into product values(null, 3, "100 years of the blues","Pack Size: 2CD",
 "bluespac_01.jpg");
 
 insert into product values(null, 4, "Ane Si Dora Sterling Silver Bracelet 16cm","Start your Ane Si Dora journey with this 16cm sterling silver bracelet. Begin collecting gorgeous charms representing life's beautiful memories! Their great design means that you can easily add new charms as you like.",
-"Ane_Si_Dora_01 .jpg");
+"Ane_Si_Dora_01.jpg");
 
 insert into product values(null,5, "Arctic Flannel Sheet Set Black Queen","Warm Polyester Fleece
 No Shrinkage",
