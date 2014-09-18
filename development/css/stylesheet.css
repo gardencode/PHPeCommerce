@@ -1,0 +1,93 @@
+h1 {
+	text-align : center;
+}
+/* navigation bar */
+
+ul.nav {
+	list-style: none;
+	display : block;
+	width : 200px;
+	position : relative;
+	margin-left: -2em;
+	-webkit-background-size: 50% 100%;
+}
+
+li{
+	margin : 5px 0 0 0;
+}
+ul.nav li a {
+	-webkit-transition: all 0.3s ease-out;
+	background: #cbcbcb url(border.png) no-repeat;
+	color: #174867;
+	padding: 7px 15px 7px 15px;
+	-webkit-border-top-right-radius: 10px;
+ 	-webkit-border-bottom-right-radius: 10px;
+	width: 100px;
+	display: block;
+	text-decoration: none;
+	-webkit-box-shadow: 2px 2px 4px #888;
+}
+
+ul.nav li a:hover {
+	color: #67a5cd;
+	padding: 7px 15px 7px 30px;
+}
+
+
+/* Content */
+
+div.Content{
+    height: 100%;
+    margin-left: 10em;
+    margin-right: 2em;
+    margin-top: -20em;
+    padding-left: 2em;
+    border: solid 1px;
+    overflow: hidden;
+}
+
+div.listItem {
+    float: left;
+    height: 12em;
+    width: 12em;
+    margin-right: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: solid 1px;
+    color: #000000;
+    text-align: center;
+}
+
+div.listItem:hover{
+    background-color: #CCCCCC;
+}
+
+div.listItem img{
+    display: block;
+    height: 7em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+}
+
+div.prodThumb {
+    float: left;
+    height: 12em;
+    width: 15em;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    border: solid 1px;
+}
+
+div.prodThumb img{
+    display: block;
+    height: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+}
+
+input[type=button], input[type=submit]{
+    width: 10em;
+}
