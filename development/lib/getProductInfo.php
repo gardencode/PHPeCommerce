@@ -1,5 +1,5 @@
 <?php
-include "lib/database.php";
+include "productSearch.php";
 
 //Class for product info (A product ID should be entered when created)
 class Product {
