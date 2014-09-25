@@ -32,7 +32,7 @@ create table Customer (
     City varChar(50),
     PhoneNumber varChar(35)
 )  engine=InnoDB;
-	drop table Administrator;
+	-- drop table Administrator;
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -56,7 +56,7 @@ create table Administrator (
 -- Customers
 INSERT INTO Customer Values(null, 'cainton.png','John', 'Jack', 'johnj2014', 'eatjack@hotmail.com', '111 Manchester Street','Christchurch', '0277267785');
 
-INSERT INTO Customer Values(null, 'cainton.png''James', 'Billy', 'jameb2014','eatjack@hotmail.com',  '454 Manchester Street','Christchurch', '0277267785');
+INSERT INTO Customer Values(null, 'cainton.png','James', 'Billy', 'jameb2014','eatjack@hotmail.com',  '454 Manchester Street','Christchurch', '0277267785');
 
 INSERT INTO Customer Values(null,'cainton.png', 'Job', 'Jerry', 'jobj2014','eatjack@hotmail.com',  '408 Harewood road','Christchurch', '0277267785');
 
