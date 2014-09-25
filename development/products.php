@@ -12,7 +12,7 @@ $allProducts = $db->query("SELECT * FROM product");
 foreach ($allProducts as $product) {
     $prodId = $product['product_id'];
     $prod = new Product($prodId);
-    echo "<a href='productPage.php?id=".$prodId."'><div class='listItem'><img src='images/".$prod->imgPath."'/><p>".$prod->name."</p></div></a>";
+    echo "<a href='productPage.php?id=".$prodId."'><div class='listItem'><img src='images/'".$prod->imgPath."'/><p>".$prod->name."</p></div></a>";
 }
 
 echo footer();
