@@ -1,0 +1,34 @@
+To run the MVC and see it working
+
+Step 1: Pull down the coolshopMVC and make it available in your local machine
+
+Step 2: Run the SQL 
+
+Step 3: Go to http://localhost/coolshopMVC/Admin/customer.php
+
+Step 4: Now you can see the customer being Display
+
+Notes:
+
+How the customer was integrated into the framework;
+
+a. customerController.php
+b. personController.php (for individual customer)
+c. Own HTML Master page
+d. Added an image
+
+Model
+a. customers.php
+b. person.php (individual customer)
+
+View
+customers.php
+
+Admin
+a. new DB object and instantiation of the new Customer Object from customer controller
+
+ 
+ What still needs to be done;
+ 
+ 1. Login and Logout to Admin section.
+ 2. Add new customer and edit.
