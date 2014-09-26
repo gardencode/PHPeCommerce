@@ -1,8 +1,8 @@
 <?php
 
-	include 'lib/interfaces.php';
-	include 'lib/uri.php';
-	include 'lib/database.php';
+	include '../lib/interfaces.php';
+	include '../lib/uri.php';
+	include '../lib/database.php';
 
 class Context implements IContext{
 
@@ -31,7 +31,7 @@ class Context implements IContext{
 
 	public static function createFromConfigurationFile($configFile) {
 	
-		$configText=file_get_contents('config/'.$configFile);
+		$configText=file_get_contents('../config/'.$configFile);
 		$config=json_decode($configText,true,10);
 		if ($config===null) {
 			throw new ConfigurationException('Invalid configuration file format');

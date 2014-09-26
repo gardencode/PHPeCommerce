@@ -1,6 +1,6 @@
 <?php
-include 'lib/abstractModel.php';
-include 'models/person.php';
+include '../lib/abstractModel.php';
+include '../models/person.php';
 
 class CustomerModel extends AbstractModel {
 
@@ -13,10 +13,11 @@ class CustomerModel extends AbstractModel {
 	}
 	
 	private function load() {
-		$sql="select CustomerImg, FirstName, LastName, UserId, Email, Address, City, PhoneNumber from Customer ".
+		$sql="select CustNum, CustomerImg, FirstName, LastName, UserId, Email, Address, City, PhoneNumber from Customer ".
 			 "order by FirstName asc, LastName asc";
 		$rows=$this->getDB()->query($sql);
 		foreach ($rows as $row){
+			$id = $row['CustNum'];
 			$image        = $row['CustomerImg'];          
 		    $firstName    = $row ['FirstName'];       
 		    $lastName     = $row ['LastName'];       
@@ -25,8 +26,9 @@ class CustomerModel extends AbstractModel {
 		    $address      = $row ['Address'];         
 		    $city         = $row ['City'];   
 		    $phoneNumber  = $row ['PhoneNumber'];
-			$person = new PersonModel($this->getDB(),$image,$firstName,$lastName,$userId,$email,$address,$city,$phoneNumber);
+			$person = new PersonModel($this->getDB(),$id,$image,$firstName,$lastName,$userId,$email,$address,$city,$phoneNumber);
 			$this->people[]=$person;
+			
 		}
 	}
 	

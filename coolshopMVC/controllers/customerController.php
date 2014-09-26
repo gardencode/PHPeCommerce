@@ -1,8 +1,8 @@
 <?php
 
-include 'lib/abstractController.php';
-include 'models/customers.php';
-include 'views/customers.php';
+include '../lib/abstractController.php';
+include '../models/customers.php';
+include '../views/customers.php';
 
 class CustomerController extends AbstractController {
 
@@ -17,7 +17,7 @@ class CustomerController extends AbstractController {
 		// create output
 		$view=new CustomerView();
 		$view->setModel($model);
-		$view->setTemplate('html/masterPage.html');
+		$view->setTemplate('../html/masterPage.html');
 		$view->setTemplateField('pagename','People');
 		$view->prepare();
 		return $view;

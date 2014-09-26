@@ -14,7 +14,7 @@ class PersonModel extends AbstractModel {
 	private $changed;
 
 	
-	public function __construct($db, $id=null, $image=null, $firstName=null,$lastName=null, $userId=null, $email=null, $address=null, $city=null, $phoneNumber=null) {
+	public function __construct($db, $id, $image=null, $firstName=null,$lastName=null, $userId=null, $email=null, $address=null, $city=null, $phoneNumber=null) {
 		parent::__construct($db);
 		$this->id=$id;
 		$this->setCustImage($image);
@@ -105,7 +105,7 @@ class PersonModel extends AbstractModel {
 		$sql = "select CustomerImg, FirstName, LastName, UserId, Email, Address, City, PhoneNumber from Customer". "Where CustNum = $id";
 		$rows = $this->getDB()->query($sql);
 		//Put an If statement here
-		$rows = $row[0];
+		$rows = $row[1];
 		$this->image        = $row['CustomerImg'];          
 		$this->firstName    = $row ['FirstName'];       
 		$this->lastName     = $row ['LastName'];       

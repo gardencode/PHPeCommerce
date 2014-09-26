@@ -1,5 +1,5 @@
 <?php
-include 'lib/abstractView.php';
+include '../lib/abstractView.php';
 class CustomerView extends AbstractView {
 
 	public function prepare () {
@@ -8,7 +8,7 @@ class CustomerView extends AbstractView {
 		         "<tr><th>Customer photo</th>
 		              <th>First Name</th>
 		              <th>Last Name</th>
-		              <th>User ID</th>
+		              <th>User Name</th>
 		              <th>Email</th>
 		              <th>Address</th>
 		              <th>City</th>
@@ -16,8 +16,9 @@ class CustomerView extends AbstractView {
 		         	  <th>Action</th>
 		         </tr>\n";
 		foreach ($people as $person) {
-			$name='<tr><td>'.$person->getCustomerImage().'</td><td>'.$person->getFirstName(). '</td><td>'.$person->getLastName().'</td><td>'.$person->getCustomerID().' </td><td>'.
+			$name='<tr><td><img src=../images/'.$person->getCustomerImage().'></td><td>'.$person->getFirstName(). '</td><td>'.$person->getLastName().'</td><td>'.$person->getCustomerID().' </td><td>'.
 					$person->getEmail().'</td><td>'.$person->getAddress().'</td><td>'.$person->getCity().'</td><td>'.$person->getPhoneNumber();
+					//var_dump($person->getCustomerImage());
 			$action='&nbsp;<button class="btn btn-large btn-info" type="button"><a href="##site##person/view/'.$person->getID().'">View</a></button>'.
 					'&nbsp;<button class="btn btn-large btn-success" type="button"><a href="##site##person/edit/'.$person->getID().'">Edit</a></button>'.
 					'&nbsp;<button class="btn btn-large btn-danger" type="button"><a href="##site##person/delete/'.$person->getID().'">Delete</a></button>';
@@ -28,5 +29,5 @@ class CustomerView extends AbstractView {
 
 		$this->setTemplateField('content',$content);
 	}
-}
+}	
 ?>
