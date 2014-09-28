@@ -1,0 +1,7 @@
+{ 
+	"name": "Test of Customer class",
+	"author": "Mike Lopez",
+	"unitTest": "CustomerTest"
+}
+
+

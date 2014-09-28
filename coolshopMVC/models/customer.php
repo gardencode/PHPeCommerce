@@ -1,6 +1,6 @@
 <?php
 
-class PersonModel extends AbstractModel {
+class CustomerModel extends AbstractModel {
 
 	private $id;
 	private $image;

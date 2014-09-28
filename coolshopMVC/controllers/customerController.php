@@ -1,10 +1,10 @@
 <?php
 
-include '../lib/abstractController.php';
-include '../models/customers.php';
-include '../views/customers.php';
 
-class CustomerController extends AbstractController {
+include 'models/person.php';
+include 'views/person.php';
+
+class PersonController extends AbstractController {
 
 	public function __construct($context) {
 		parent::__construct($context);
@@ -12,15 +12,37 @@ class CustomerController extends AbstractController {
 
 	protected function getView($isPostback) {
 		$db=$this->getDB();
-		$model = new CustomerModel($db);
-		
-		// create output
-		$view=new CustomerView();
+		$uri=$this->getURI();
+		$action=$uri->getPart();
+		switch ($action) {
+			case 'new':
+				return handleEdit($postback,null);
+			case 'edit':
+				$id=$uri->getID();
+				return handleEdit($postback,$id);	
+			case 'view':
+				break;
+			case 'delete':
+				break;
+			default:
+				throw new InvalidRequestException ("Invalid action in URI");
+		}
+	
+/*
+		$model = new PeopleModel($db);
+		$view=new PeopleView();
 		$view->setModel($model);
-		$view->setTemplate('../html/masterPage.html');
-		$view->setTemplateField('pagename','People');
-		$view->prepare();
+		$view->setTemplate('html/masterPage.html');
 		return $view;
+*/	
 	}
+	
+	private function handleEdit($postback, $id=null) {
+	}
+	
+	private function handleView($postback, $id=null) {
+				throw new Exception ("Not yet implemented");
+	}
+	
 }
 ?>

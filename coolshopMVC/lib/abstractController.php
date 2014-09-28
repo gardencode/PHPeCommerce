@@ -4,10 +4,16 @@ abstract class AbstractController {
 	
 	private $context;
 	private $redirect;
+	private $inputs;
 	
 	public function __construct (IContext $context){
 		$this->context=$context;
 		$this->redirect=null;
+		$this->inputs=$_POST;
+		unset ($_POST);
+	}
+	protected function getContext() {
+		return $this->context;
 	}
 	protected function getDB() {
 		return $this->context->getDB();
@@ -32,6 +38,15 @@ abstract class AbstractController {
 			// apply global template arguments
 			$site=$this->getURI()->getSite();
 			$view->setTemplateField('site',$site);
+			$session=$this->context->getSession();
+			if ($session->isKeySet('feedback') ) {
+				$feedback=$session->get('feedback');
+				$feedback="<div class=\"feedback\">$feedback</div>";
+				$session->unsetKey('feedback');
+			} else {
+				$feedback='';
+			}
+			$view->setTemplateField('feedback',$feedback);
 			$view->render();
 		} elseif ($this->redirect!==null) {
 			header ('Location: '.$this->redirect);
@@ -46,7 +61,21 @@ abstract class AbstractController {
 	}	
 	
 	protected function redirectTo ($page, $feedback) {
-		throw new Exception ('Not yet implemented');	
+		$this->redirect=$this->context->getURI()->getSite().$page;
+		$this->context->getSession()->set('feedback',$feedback);
 	}
+	
+	protected function getInput($inputField) {
+		if (!isset($this->inputs[$inputField])) {
+			return null;
+		}
+		$input = trim($this->inputs[$inputField]); 
+		return $this->sanitise($input);
+	}
+
+	private function sanitise($input) {
+		return htmlspecialchars($input, ENT_QUOTES);
+	}
+	
 }
 ?>

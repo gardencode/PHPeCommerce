@@ -1,0 +1,7 @@
+{ 
+	"name": "Set up database",
+	"author": "Mike Lopez",
+	"SQLscript": "coolshopDB_V2.sql"
+}
+
+

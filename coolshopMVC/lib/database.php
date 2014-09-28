@@ -1,6 +1,12 @@
 <?php
+/*
+   A PHP framework for web sites by Mike Lopez
 
-//include "lib/interfaces.php";
+   Database Connection Class using mysqli
+   ======================================
+   
+*/
+
 class Database implements IDatabase
 {
 	private  $conn ;
@@ -77,7 +83,10 @@ class Database implements IDatabase
 		$this->conn->autocommit(true);
 		$this->isInTransaction=false;	
 	}
-	
+
+	public function escape($fieldValue) {
+		return $this->conn->real_escape_string($fieldValue);	// TODO: charset	
+	}
 	public function queryPrepared($parameterisedSQL,$fields) {
 		throw new DatabaseException("Not yet implemented");
 	}

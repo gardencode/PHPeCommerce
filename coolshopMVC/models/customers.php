@@ -1,8 +1,8 @@
 <?php
-include '../lib/abstractModel.php';
-include '../models/person.php';
+include 'lib/abstractModel.php';
+include 'models/customer.php';
 
-class CustomerModel extends AbstractModel {
+class CustomersModel extends AbstractModel {
 
 	private $people;
 	
@@ -26,7 +26,7 @@ class CustomerModel extends AbstractModel {
 		    $address      = $row ['Address'];         
 		    $city         = $row ['City'];   
 		    $phoneNumber  = $row ['PhoneNumber'];
-			$person = new PersonModel($this->getDB(),$id,$image,$firstName,$lastName,$userId,$email,$address,$city,$phoneNumber);
+			$person = new CustomerModel($this->getDB(),$id,$image,$firstName,$lastName,$userId,$email,$address,$city,$phoneNumber);
 			$this->people[]=$person;
 			
 		}

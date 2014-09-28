@@ -1,9 +1,16 @@
 <?php
+/*
+   A PHP framework for web sites by Mike Lopez
+   
+   custom exceptions and common interfaces
+   =======================================   
+*/
 
 class DatabaseException extends Exception {}
 class InvalidRequestException extends Exception {}
 class ConfigurationException extends Exception {}
 class InvalidDataException extends Exception {}
+class LoginException extends Exception {}
 
 interface IDatabase {
     function query($sql);
@@ -17,6 +24,9 @@ interface IDatabase {
 	function commitTransaction();
 	function rollbackTransaction();
 	
+	// SQL injection
+	function escape($fieldValue);
+	
 	// prepared statements
 	function queryPrepared($parameterisedSQL,$fields);
     function executePrepared($parameterisedSQL,$fields);
@@ -28,10 +38,22 @@ interface IUri {
 	function getID();
 }
 
+interface ISession {
+	function get($key);
+	function set($key, $value);
+	function isKeySet($key);
+	function unsetKey($key);
+	function changeContext();
+	function clear();
+}
+
 interface IContext {
 	function getDB();
 	function getURI();
 	function getConfig();
+	function getSession();
+	function getUser();
+	function setUser($user);
 }
 
 /*
