@@ -96,20 +96,20 @@ insert into category values (null,'Jewellery');
 insert into category values (null,'Homewares');
 insert into category values (null,'Furniture');
 
-insert into product values(null, null, "Acer Aspire 11.6 Inch Notebook V5-132","The perfect compact Entry-Level Notebook for checking emails, browsing the internet, updating your facebook profile.",22.00,
+insert into product values(null, 1, "Acer Aspire 11.6 Inch Notebook V5-132","The perfect compact Entry-Level Notebook for checking emails, browsing the internet, updating your facebook profile.",22.00,
 "acer_01.jpg");
-insert into product values(null, null, "H&H Boys Spray Jacket","Fabric: Polyester",20.50,
+insert into product values(null, 2, "H&H Boys Spray Jacket","Fabric: Polyester",20.50,
 "H_H01.jpg") ;
 
-insert into product values(null, null, "100 years of the blues","Pack Size: 2CD",50.90,
+insert into product values(null, 4, "100 years of the blues","Pack Size: 2CD",50.90,
 "bluespac_01.jpg");
 
-insert into product values(null, null, "Ane Si Dora Sterling Silver Bracelet 16cm","Start your Ane Si Dora journey with this 16cm sterling silver bracelet. Begin collecting gorgeous charms representing life's beautiful memories! Their great design means that you can easily add new charms as you like.",50.30,
+insert into product values(null, 2, "Ane Si Dora Sterling Silver Bracelet 16cm","Start your Ane Si Dora journey with this 16cm sterling silver bracelet. Begin collecting gorgeous charms representing life's beautiful memories! Their great design means that you can easily add new charms as you like.",50.30,
 "Ane_Si_Dora_01.jpg");
 
-insert into product values(null,null, "Arctic Flannel Sheet Set Black Queen","Warm Polyester Fleece",45.00,
+insert into product values(null,6, "Arctic Flannel Sheet Set Black Queen","Warm Polyester Fleece",45.00,
 
 "archtic_flannel.jpg");
-insert into product values(null, null, "Reside Espresso Coffee Table Rectangular","Warm Polyester FleeceDecorate your home in style with the \"Reside Espresso\" range exclusive to The Warehouse. Combining the latest in contemporary styling and cool chocolate / coffee colour \"Reside Espresso\" is the latest in modern home fashion. 
+insert into product values(null, 2, "Reside Espresso Coffee Table Rectangular","Warm Polyester FleeceDecorate your home in style with the \"Reside Espresso\" range exclusive to The Warehouse. Combining the latest in contemporary styling and cool chocolate / coffee colour \"Reside Espresso\" is the latest in modern home fashion. 
 No Shrinkage",60.00,
 "espresso_coffee_table_01.jpg");
