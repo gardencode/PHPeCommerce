@@ -77,19 +77,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="productModel.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="productModel.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/productModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="40" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1462">
+            <state line="15" column="40" selection-start="392" selection-end="392" vertical-scroll-proportion="0.2924312" vertical-offset="0" max-vertical-offset="1462">
               <folding>
                 <marker date="1412121355498" expanded="true" signature="461:527" placeholder="update produ..." />
                 <marker date="1412121355498" expanded="true" signature="519:696" placeholder="INSERT INTO ..." />
                 <marker date="1412121355498" expanded="true" signature="764:773" placeholder="..." />
+                <marker date="1412121355498" expanded="true" signature="816:882" placeholder="update produ..." />
                 <marker date="1412121355498" expanded="true" signature="915:982" placeholder="update produ..." />
+                <marker date="1412121355498" expanded="true" signature="994:1061" placeholder="update produ..." />
                 <marker date="1412121355498" expanded="true" signature="1179:1253" placeholder="update produ..." />
                 <marker date="1412121355498" expanded="true" signature="1366:1434" placeholder="update produ..." />
                 <marker date="1412121355498" expanded="true" signature="1551:1607" placeholder="select categ..product..." />
                 <marker date="1412121355498" expanded="true" signature="1780:1822" placeholder="DELETE FROM ..." />
+                <marker date="1412121355498" expanded="true" signature="2031:2095" placeholder="select produ..product..." />
+                <marker date="1412121355498" expanded="true" signature="2276:2334" placeholder="select produ..product..." />
+                <marker date="1412121355498" expanded="true" signature="2513:2555" placeholder="DELETE FROM ..." />
               </folding>
             </state>
           </provider>
@@ -104,10 +109,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="33" selection-start="546" selection-end="546" vertical-scroll-proportion="0.32655367" vertical-offset="0" max-vertical-offset="885">
+            <state line="17" column="33" selection-start="546" selection-end="546" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="799">
               <folding>
                 <marker date="1411545486524" expanded="true" signature="190:211" placeholder="select * fro..product..." />
                 <marker date="1411545486524" expanded="true" signature="372:463" placeholder="select produ..product..." />
@@ -429,11 +434,16 @@
             <marker date="1412121355498" expanded="true" signature="461:527" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="519:696" placeholder="INSERT INTO ..." />
             <marker date="1412121355498" expanded="true" signature="764:773" placeholder="..." />
+            <marker date="1412121355498" expanded="true" signature="816:882" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="915:982" placeholder="update produ..." />
+            <marker date="1412121355498" expanded="true" signature="994:1061" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="1179:1253" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="1366:1434" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="1551:1607" placeholder="select categ..product..." />
             <marker date="1412121355498" expanded="true" signature="1780:1822" placeholder="DELETE FROM ..." />
+            <marker date="1412121355498" expanded="true" signature="2031:2095" placeholder="select produ..product..." />
+            <marker date="1412121355498" expanded="true" signature="2276:2334" placeholder="select produ..product..." />
+            <marker date="1412121355498" expanded="true" signature="2513:2555" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -518,11 +528,16 @@
             <marker date="1412121355498" expanded="true" signature="461:527" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="519:696" placeholder="INSERT INTO ..." />
             <marker date="1412121355498" expanded="true" signature="764:773" placeholder="..." />
+            <marker date="1412121355498" expanded="true" signature="816:882" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="915:982" placeholder="update produ..." />
+            <marker date="1412121355498" expanded="true" signature="994:1061" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="1179:1253" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="1366:1434" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="1551:1607" placeholder="select categ..product..." />
             <marker date="1412121355498" expanded="true" signature="1780:1822" placeholder="DELETE FROM ..." />
+            <marker date="1412121355498" expanded="true" signature="2031:2095" placeholder="select produ..product..." />
+            <marker date="1412121355498" expanded="true" signature="2276:2334" placeholder="select produ..product..." />
+            <marker date="1412121355498" expanded="true" signature="2513:2555" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -593,11 +608,16 @@
             <marker date="1412121355498" expanded="true" signature="461:527" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="519:696" placeholder="INSERT INTO ..." />
             <marker date="1412121355498" expanded="true" signature="764:773" placeholder="..." />
+            <marker date="1412121355498" expanded="true" signature="816:882" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="915:982" placeholder="update produ..." />
+            <marker date="1412121355498" expanded="true" signature="994:1061" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="1179:1253" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="1366:1434" placeholder="update produ..." />
             <marker date="1412121355498" expanded="true" signature="1551:1607" placeholder="select categ..product..." />
             <marker date="1412121355498" expanded="true" signature="1780:1822" placeholder="DELETE FROM ..." />
+            <marker date="1412121355498" expanded="true" signature="2031:2095" placeholder="select produ..product..." />
+            <marker date="1412121355498" expanded="true" signature="2276:2334" placeholder="select produ..product..." />
+            <marker date="1412121355498" expanded="true" signature="2513:2555" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
@@ -689,22 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/productModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="40" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1462">
-          <folding>
-            <marker date="1412121355498" expanded="true" signature="461:527" placeholder="update produ..." />
-            <marker date="1412121355498" expanded="true" signature="519:696" placeholder="INSERT INTO ..." />
-            <marker date="1412121355498" expanded="true" signature="764:773" placeholder="..." />
-            <marker date="1412121355498" expanded="true" signature="915:982" placeholder="update produ..." />
-            <marker date="1412121355498" expanded="true" signature="1179:1253" placeholder="update produ..." />
-            <marker date="1412121355498" expanded="true" signature="1366:1434" placeholder="update produ..." />
-            <marker date="1412121355498" expanded="true" signature="1551:1607" placeholder="select categ..product..." />
-            <marker date="1412121355498" expanded="true" signature="1780:1822" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../../../../../bin/apache/apache2.4.9/conf/wampserver.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="2" selection-start="325" selection-end="325" vertical-scroll-proportion="0.1679473" vertical-offset="0" max-vertical-offset="911" />
@@ -740,10 +744,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="33" selection-start="546" selection-end="546" vertical-scroll-proportion="0.32655367" vertical-offset="0" max-vertical-offset="885">
+        <state line="17" column="33" selection-start="546" selection-end="546" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="799">
           <folding>
             <marker date="1411545486524" expanded="true" signature="190:211" placeholder="select * fro..product..." />
             <marker date="1411545486524" expanded="true" signature="372:463" placeholder="select produ..product..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/productModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="40" selection-start="392" selection-end="392" vertical-scroll-proportion="0.2924312" vertical-offset="0" max-vertical-offset="1462">
+          <folding>
+            <marker date="1412121355498" expanded="true" signature="461:527" placeholder="update produ..." />
+            <marker date="1412121355498" expanded="true" signature="519:696" placeholder="INSERT INTO ..." />
+            <marker date="1412121355498" expanded="true" signature="764:773" placeholder="..." />
+            <marker date="1412121355498" expanded="true" signature="816:882" placeholder="update produ..." />
+            <marker date="1412121355498" expanded="true" signature="915:982" placeholder="update produ..." />
+            <marker date="1412121355498" expanded="true" signature="994:1061" placeholder="update produ..." />
+            <marker date="1412121355498" expanded="true" signature="1179:1253" placeholder="update produ..." />
+            <marker date="1412121355498" expanded="true" signature="1366:1434" placeholder="update produ..." />
+            <marker date="1412121355498" expanded="true" signature="1551:1607" placeholder="select categ..product..." />
+            <marker date="1412121355498" expanded="true" signature="1780:1822" placeholder="DELETE FROM ..." />
+            <marker date="1412121355498" expanded="true" signature="2031:2095" placeholder="select produ..product..." />
+            <marker date="1412121355498" expanded="true" signature="2276:2334" placeholder="select produ..product..." />
+            <marker date="1412121355498" expanded="true" signature="2513:2555" placeholder="DELETE FROM ..." />
           </folding>
         </state>
       </provider>
