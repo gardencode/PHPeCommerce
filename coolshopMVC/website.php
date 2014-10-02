@@ -46,4 +46,9 @@
 				throw new InvalidRequestException ("No such page");
 		}
 	}
+	
+	function logException ($ex) {
+		print 'Well that was a bit awkward: '.$ex->getMessage().'<br/>';
+		
+	}
 ?>
