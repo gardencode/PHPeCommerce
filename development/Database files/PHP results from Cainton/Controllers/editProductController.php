@@ -10,7 +10,7 @@ $image = $_POST['product_image'];
 
 Product::setCategoryId($id, $categoryId);
 Product::setName($id, $name);
-Product::setDescription($id, $description);
+Product::setDecription($id, $description);
 Product::setImage($id, $image);
 
 header("Location: ..")

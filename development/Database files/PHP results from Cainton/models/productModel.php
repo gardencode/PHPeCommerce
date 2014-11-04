@@ -23,28 +23,16 @@ class Product {
     }
 
     public static function setCategoryId($id, $value) {
-        $error = Product::errorInCategoryId($value);
-        if ($error !== null) {
-            throw new Exception($error);
-        }
         global $link;
         mysqli_query($link, "update product set category_id = '$value' where product_id = '$id'");
     }
 
     public static function setName($id, $value) {
-        $error = Product::errorInName($value);
-        if ($error !== null) {
-            throw new Exception($error);
-        }
         global $link;
         mysqli_query($link, "update product set product_name = '$value' where product_id = '$id'");
     }
 
-    public static function setDescription($id, $value) {
-        $error = Product::errorInDescription($value);
-        if ($error !== null) {
-            throw new Exception($error);
-        }
+    public static function setDecription($id, $value) {
         global $link;
         mysqli_query($link, "update product set product_description = '$value' where product_id = '$id'");
     }
@@ -87,27 +75,7 @@ class Product {
         mysqli_query($link, "DELETE FROM product WHERE product_id = $id");
     }
 
-    public static function errorInCategoryId($value) {
-        if ($value > 6) {
-            return "Please enter a valid category id.";
-        }
-        return null;
-    }
-
-    public static function errorInName($value) {
-        if (strlen($value) > 50) {
-            return "Product names must be 50 characters or less.";
-        }
-        return null;
-    }
-
-    public static function errorInDescription($value) {
-        if (strlen($value) > 100) {
-            return "Product descriptions must be 100 characters or less.";
-        }
-        return null;
-    }
-
 }
+
 
 ?>
