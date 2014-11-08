@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>##pagename## | Mike's framework</title>
-	<link href="##site##css/site.css" rel="stylesheet" type="text/css" />
+	<title>##pagename## | CoolShop</title>
+	<link href="##site##css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<script src="##site##js/bootstrap.min.js" rel="stylesheet" type="text/css" ></script>
 </head>
 
 <body>
 <div class="header">
-<img src="##site##images/logo.png" />
-<br/>
-<h1>Mike's PHP framework</h1>
-<h2>##pagename##</h2>
-</div>
+<img src="##site##images/logo.png" /></div>
 <hr class="clearfloat" />
-<div class="menu">
-	<ul class="menu">
-		##menubar##
-	</ul>
+<div class="navbar navbar-inverse">
+<a href="##site##admin/products">Products</a>
+<a href="##site##admin/customers">Customers</a>
+
 </div>
 <hr class="clearfloat" />
 
 <div class="content">
-##feedback##
+<h1>##pagename##</h1>
 ##content##
 </div>
-		
+
 <div class="footer">
 	<hr/>
-	<a href="##site##static/privacy" >Privacy Policy</a>&nbsp;
-	<a href="##site##static/contact" >Contact us </a>	&nbsp;
-	<span>Secure site example &copy; 2014 Dr Michael Lopez</span>
+	<a href="##site##html/static/privacy.html" >Privacy Policy</a>&nbsp;
+	<a href="##site##html/static/contact.html" >Contact us </a>	
+	<p>Secure site example &copy; by CoolShop Enterprise</p>
 	<hr/>
 </div>
 </body>

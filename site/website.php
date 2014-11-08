@@ -41,14 +41,16 @@
 		logException ($ex);
 		echo 'Page not found<br/>';
 		// It is bad security practice to reveal exceptions to users
-		// We log the exception and give a looser description of
+		// We shouuld log the exception and give a looser description of
 		// the problem to the user.
 		// We'll make the output prettier later
+		
+		
 		exit;
 	}
 		
 	function logException ($ex) {
-		// do nothing for now
+		// do no logging for now, just display
 		print "Exception thrown: {$ex->getMessage()}>br/>";
 	}
 	
@@ -60,13 +62,6 @@
 		switch ($path) {
 			case 'admin':
 				return getAdminController($context);
-			case 'products':
-				return 'ProductsViewer';
-			case 'product':
-				return 'ProductViewer';
-			case 'cart':
-				return 'Cart';
-				
 			case '':
 				$uri->prependPart('home');
 				return 'Static';
@@ -84,9 +79,11 @@
 	// This is a very simple admin router
 	// We match the next part of the URI to the controller name for the action
 	function getAdminController($context) {
+/*
 		if (!$context->getUser()->isAdmin() ) {
 			throw new InvalidRequestException('Administrator access is required for this page');
 		}
+*/
 		$uri=$context->getURI();
 		$path=$uri->getPart();
 		switch ($path) {
@@ -95,11 +92,13 @@
 		    case 'category':
 				return 'Category';
 		    case 'products':
-				return 'Products';
+				return 'AdminProducts';
 		    case 'product':
-				return 'Product';
-			case 'people':
-				return 'People';
+				return 'AdminProduct';
+		    case 'customers':
+				return 'AdminCustomers';
+			case 'customer':
+				return 'AdminCustomer';
 			default:
 				throw new InvalidRequestException ('No such page');
 		}

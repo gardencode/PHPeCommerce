@@ -1,7 +1,0 @@
-{ 
-	"name": "Test of ListSelectionView class",
-	"author": "Mike Lopez",
-	"unitTest": "ListSelectionViewTest"
-}
-
-

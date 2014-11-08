@@ -55,7 +55,7 @@ class Database implements IDatabase
 	
 	public function close(){
 		if ($this->isInTransaction) {
-			throw new DatabaseException('A transaction has been started but niot committed');
+			throw new DatabaseException('A transaction has been started but not committed');
 		}
 		$this->conn->close();
 	}

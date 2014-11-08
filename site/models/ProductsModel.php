@@ -1,7 +1,4 @@
 <?php
-include '../lib/abstractModel.php';
-include '../models/product.php';
-
 class ProductsModel extends AbstractModel {
 
     private $products;
@@ -13,18 +10,17 @@ class ProductsModel extends AbstractModel {
     }
 
     private function load() {
-        $sql = "select product_id, category_id, product_name, product_description, product_price, product_image from product";
+        $sql = "select id, categoryId, name, description, price, image from product;";
         $rows = $this->getDB()->query($sql);
         foreach ($rows as $row){
-            $productId = $row['product_id'];
-            $categoryId = $row['category_id'];
-            $productName = $row ['product_name'];
-            $productDescription = $row ['product_description'];
-            $productPrice = $row ['product_price'];
-            $productImage = $row ['product_image'];
+            $productId = $row['id'];
+            $categoryId = $row['categoryId'];
+            $productName = $row ['name'];
+            $productDescription = $row ['description'];
+            $productPrice = $row ['price'];
+            $productImage = $row ['image'];
             $product = new ProductModel($this->getDB(),$productId,$categoryId,$productName,$productDescription,$productPrice,$productImage);
             $this->products[]=$product;
-
         }
     }
 

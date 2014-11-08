@@ -1,29 +1,23 @@
 <?php
 
-
-include 'models/person.php';
-include 'views/person.php';
-
-class PersonController extends AbstractController {
+class AdminCustomerController extends AbstractController {
 
 	public function __construct($context) {
 		parent::__construct($context);
 	}
 
 	protected function getView($isPostback) {
-		$db=$this->getDB();
 		$uri=$this->getURI();
 		$action=$uri->getPart();
 		switch ($action) {
 			case 'new':
-				return handleEdit($postback,null);
+				return $this->handleEdit($isPostback,null);
 			case 'edit':
-				$id=$uri->getID();
-				return handleEdit($postback,$id);	
+				return $this->handleEdit($isPostback,$uri->getID());	
 			case 'view':
-				break;
+				return $this->handleView($isPostback,$uri->getID());	
 			case 'delete':
-				break;
+				return $this->handleDelete($isPostback,$uri->getID());	
 			default:
 				throw new InvalidRequestException ("Invalid action in URI");
 		}
@@ -38,11 +32,14 @@ class PersonController extends AbstractController {
 	}
 	
 	private function handleEdit($postback, $id=null) {
+		throw new Exception ("Edit/New not yet implemented");
+	}	
+	private function handleView($postback, $id) {
+		throw new Exception ("View not yet implemented");
 	}
-	
-	private function handleView($postback, $id=null) {
-				throw new Exception ("Not yet implemented");
+	private function handleDelete($postback, $id) {
+		throw new Exception ("Delete not yet implemented");
 	}
-	
+
 }
 ?>

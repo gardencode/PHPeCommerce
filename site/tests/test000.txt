@@ -1,7 +1,0 @@
-{ 
-	"name": "Set up database schema",
-	"author": "Mike Lopez",
-	"SQLscript": "sql/schema.sql"
-}
-
-

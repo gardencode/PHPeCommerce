@@ -1,7 +1,0 @@
-{ 
-	"name": "Test of User class",
-	"author": "Mike Lopez",
-	"unitTest": "UserTest"
-}
-
-

@@ -1,7 +1,5 @@
 <?php
 
-include '../models/productModel.php';
-
 $id = $_POST['product_id'];
 $categoryId = $_POST['category_id'];
 $name = $_POST['product_name'];

@@ -16,14 +16,15 @@ p {
 }
 
 div.header {
-	font-size: 1em;
+	font-size: 2em;
 	vertical-align: center;
-	height: 7em;
+	height: 4.5em;
 }
+
 
 div.header  img{
 	float: left;
-	height: 6em;
+	height: 4em;
 	margin-top: .2em;
 	margin-left: .5em;
 	margin-right: 1em;
@@ -98,7 +99,6 @@ ul.menu li.dropdown:hover div a{
 */
 .footer {
 	background-color: #ddd; 
-	padding: 0 1em;
 }
 
 th {
@@ -109,7 +109,7 @@ th {
 }
 
 td {
-	background-color: #ddf;
+	background-color: #EE0;
 
 }
 .odd  td{
@@ -119,33 +119,4 @@ td {
 .even td {
 	background-color: #ddd;
 }
-td.r { text-align: right;}
 
-label {
-	display: block;
-	margin-left: 1em;
-	margin-right: 1em;
-	width: 4em;
-	float: left;
-	text-align: right;
-}
-
-input, textarea, select {
-	display: block;
-	margin-left: 1em;
-	width: 18em;
-
-}
-
-div.feedback {
-	background-color: #ccf;
-	border: solid #00f 1px;
-	padding: 0 1em;
-}
-
-div.adminEdit {
-	padding: 1em;
-}
-form {
-	padding: 1em;
-}

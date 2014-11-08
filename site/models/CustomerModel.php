@@ -1,6 +1,6 @@
 <?php
 
-class PersonModel extends AbstractModel {
+class CustomerModel extends AbstractModel {
 
 	private $id;
 	private $image;
@@ -102,18 +102,19 @@ class PersonModel extends AbstractModel {
 	}
 
 	public function load($id){
-		$sql = "select CustomerImg, FirstName, LastName, UserId, Email, Address, City, PhoneNumber from Customer". "Where CustNum = $id";
+		$sql = "select image, firstName, lastName, userId, email, address, city, phoneNumber from customer". 
+		"Where id = $id";
 		$rows = $this->getDB()->query($sql);
 		//Put an If statement here
 		$rows = $row[1];
-		$this->image        = $row['CustomerImg'];          
-		$this->firstName    = $row ['FirstName'];       
-		$this->lastName     = $row ['LastName'];       
-		$this->userId       = $row ['UserId'];     
-		$this->email        = $row ['Email'];       
-		$this->address      = $row ['Address'];         
-		$this->city         = $row ['City'];   
-		$this->phoneNumber  = $row ['PhoneNumber'];
+		$this->image        = $row['image'];          
+		$this->firstName    = $row ['firstName'];       
+		$this->lastName     = $row ['lastName'];       
+		$this->userId       = $row ['userId'];     
+		$this->email        = $row ['email'];       
+		$this->address      = $row ['address'];         
+		$this->city         = $row ['city'];   
+		$this->phoneNumber  = $row ['phoneNumber'];
 		$this->id           = $id; 
 		$this->changed      = false;
 	}
@@ -130,19 +131,18 @@ class PersonModel extends AbstractModel {
 		$phone      = $this->phoneNumber;
 		
 		if($id === null){
-			$sql ="insert into Customer(CustomerImg, FirstName, LastName, UserId, Email, Address, City, PhoneNumber) values
+			$sql ="insert into customer(CustomerImg, FirstName, LastName, UserId, Email, Address, City, PhoneNumber) values
 			("."'$image','$firstname','$lastname','$userid','$email','$address','$city','$phone')";
 			$this->getDB()->execute($sql);
 			$this->id=getDB()->insertID();	
 		}
 		else{
-			$sql = "update Customer "." set CustomerImg ='$image', "." FirstName = '$firstname', "." LastName ='$lastname', "."
+			$sql = "update customer "." set CustomerImg ='$image', "." FirstName = '$firstname', "." LastName ='$lastname', "."
 					UserId = '$userid', "." Email = '$email', "." Address = '$address', "." City =$city, "." PhoneNumber ='$phone' "."
 					WHERE CustNum = $id";
 					$this->getDB()->execute($sql);
 		}
 		$this->changed = false;		
 	}
-
 }
 ?>

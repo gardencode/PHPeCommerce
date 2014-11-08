@@ -1,5 +1,4 @@
 <?php
-include '../lib/abstractView.php';
 class ProductsView extends AbstractView {
 
     public function prepare() {
@@ -15,10 +14,9 @@ class ProductsView extends AbstractView {
         foreach ($products as $product) {
             $name='<tr><td>'. $product->getCategoryId(). '</td><td>'.$product->getName(). '</td><td>'.$product->getDescription().'</td><td>'.$product->getPrice().' </td><td>'.
                 '<img src=../images/'.$product->getImage().'></td>';
-            //var_dump($person->getCustomerImage());
-            $action='&nbsp;<button class="btn btn-large btn-info" type="button"><a href="##site##product/view/'.$product->getID().'">View</a></button>'.
-                '&nbsp;<button class="btn btn-large btn-success" type="button"><a href="##site##product/edit/'.$product->getID().'">Edit</a></button>'.
-                '&nbsp;<button class="btn btn-large btn-danger" type="button"><a href="##site##product/delete/'.$product->getID().'">Delete</a></button>';
+            $action='&nbsp;<button class="btn btn-large btn-info" type="button"><a href="##site##admin/product/view/'.$product->getID().'">View</a></button>'.
+                '&nbsp;<button class="btn btn-large btn-success" type="button"><a href="##site##admin/product/edit/'.$product->getID().'">Edit</a></button>'.
+                '&nbsp;<button class="btn btn-large btn-danger" type="button"><a href="##site##admin/product/delete/'.$product->getID().'">Delete</a></button>';
             $content.="<tr><td>$name</td><td>$action</td></tr>\n";
         }
         $content.="</table>\n";
