@@ -71,6 +71,17 @@
 				return 'Login';
 			case 'logout':
 				return 'Logout';
+			case 'register':
+				return 'Register';		
+			case 'products':
+				return 'Products';
+			case 'search':
+				return 'Search';
+			case 'cart':
+				return 'Cart';
+			case 'checkout':
+				return 'Checkout';
+				
 			default:
 				throw new InvalidRequestException ("No such page");
 		}
@@ -88,9 +99,9 @@
 		$path=$uri->getPart();
 		switch ($path) {
 		    case 'categories':
-				return 'Categories';
+				return 'AdminCategories';
 		    case 'category':
-				return 'Category';
+				return 'AdminCategory';
 		    case 'products':
 				return 'AdminProducts';
 		    case 'product':

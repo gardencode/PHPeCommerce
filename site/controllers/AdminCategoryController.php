@@ -18,16 +18,14 @@
    Here, We're just implementing the category specific stuff
 */
 
-class CategoryController extends CrudController {
+class AdminCategoryController extends CrudController {
 
 	public function __construct(IContext $context) {
 		parent::__construct($context);
 	}
-
 	protected function getPagename(){
 		return 'Categories';
 	}
-	
 	// the following methods are the must-overrides in the Crud controller
 	protected function getTemplateForNew () {
 		return 'html/forms/adminCategoryNew.html';
@@ -46,7 +44,6 @@ class CategoryController extends CrudController {
 	}
 	protected function getModelData($model) {
 		$this->setField('name', $model->getName());
-		$this->setField('description',$model->getDescription());		
 	}
 	protected function getFormData() {
 		$name=$this->getInput('name');
@@ -55,19 +52,10 @@ class CategoryController extends CrudController {
 		if ($error!==null) {
 			$this->setError ('name',$error);
 		}
-		$description=$this->getInput('description');
-		$this->setField('description', $description);
-		$error=CategoryModel::errorInDescription($description);
-		if ($error!==null) {
-			$this->setError ('description',$error);
-		}
 	}
 	protected function updateModel($model) {
-		$name=$this->getField('name');
-		$description=$this->getField('description');
-		
+		$name=$this->getField('name');	
 		$model->setName($name);
-		$model->setDescription($description);	
 		$model->save();
 		$this->redirectTo('admin/categories',"Category '$name' has been saved");
 	}

@@ -1,5 +1,6 @@
 <?php
-class ProductViewerController extends AbstractController {
+
+class ProductsController extends AbstractController {
 
 	public function __construct($context) {
 		parent::__construct($context);
