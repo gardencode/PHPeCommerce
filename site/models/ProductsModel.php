@@ -19,7 +19,7 @@ class ProductsModel extends AbstractModel {
             $productDescription = $row ['description'];
             $productPrice = $row ['price'];
             $productImage = $row ['image'];
-            $product = new ProductModel($this->getDB(),$productId,$categoryId,$productName,$productDescription,$productPrice,$productImage);
+            $product = ProductModel::createFromFields($this->getDB(),$productId,$categoryId,$productName,$productDescription,$productPrice,$productImage);
             $this->products[]=$product;
         }
     }

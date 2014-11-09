@@ -76,11 +76,18 @@ abstract class AbstractModel {
 		if ($value==null || strlen($value)==0) {
 			return $field.' must be specified';
 		}
+		return self::errorInOptionalField($field, $value, $maxSize);
+	}
+	public static function errorInOptionalField($field, $value, $maxSize) {
+		if ($value==null || strlen($value)==0) {
+			return null;
+		}
 		if (strlen($value)>$maxSize) {
 			return $field.' must have no more than '.$maxSize.' characters';
 		}
 		return null;
 	}
+
 	// required date cannot be null, must have valid date
 	public static function errorInRequiredDateField($field, $value, $format='dd-mm-yy') {
 		if ($value==null || strlen($value)==0) {

@@ -13,7 +13,7 @@ create table product (
     id          int NOT NULL auto_increment primary key,
     categoryId  int NOT NULL,
     name        varchar(50) NOT NULL,
-    description varchar(300),
+    description varchar(300) NOT NULL,
     price       decimal(10,2) NOT NULL,
     image       varchar(100),
     foreign key (categoryId)  references category (id)

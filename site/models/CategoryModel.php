@@ -98,7 +98,7 @@ class CategoryModel extends AbstractEntityModel {
 	public static function errorInName($value) {
 		return self::errorInRequiredField('Category name',$value,40);	
 	}
-	public static function isExistingId($db,$id) {
+	public static function isExistingId(IDatabase $db,$id) {
 		return self::checkExistingId($db,$id, 
 			'select 1 from category where id='.$id);
 	}	
