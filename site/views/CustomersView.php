@@ -16,7 +16,7 @@ class CustomersView extends AbstractView {
 		         	  <th>Action</th>
 		         </tr>\n";
 		foreach ($people as $person) {
-			$name='<tr><td><img src=../images/'.$person->getCustomerImage().'></td><td>'.$person->getFirstName(). '</td><td>'.$person->getLastName().'</td><td>'.$person->getCustomerID().' </td><td>'.
+			$name='<tr><td><img src=../images/'.$person->getImage().'></td><td>'.$person->getFirstName(). '</td><td>'.$person->getLastName().'</td><td>'.$person->getID().' </td><td>'.
 					$person->getEmail().'</td><td>'.$person->getAddress().'</td><td>'.$person->getCity().'</td><td>'.$person->getPhoneNumber();
 					//var_dump($person->getCustomerImage());
 			$action='&nbsp;<button class="btn btn-large btn-info" type="button"><a href="##site##admin/customer/view/'.$person->getID().'">View</a></button>'.

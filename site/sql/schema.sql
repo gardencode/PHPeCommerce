@@ -32,6 +32,16 @@ create table customer (
     phoneNumber varChar(35)
 )  engine=InnoDB;
 
+-- Customers --
+create table customers (
+    id          int NOT NULL auto_increment primary key,
+    name   		varchar(40) NOT NULL,
+    address     varchar(200) NOT NULL,
+    email       varchar(64),
+    phone 		varchar(30)
+)  engine=InnoDB;
+
+
 -- Users --
 create table users (
 	id        int NOT NULL auto_increment,
