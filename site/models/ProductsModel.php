@@ -36,7 +36,7 @@ class ProductsModel extends AbstractModel {
 	}
 	
 	public function setCategoryFilter ($categoryId) {
-		if (!ctype_digit($categoryId)) {
+		if (!is_int($categoryId) && !ctype_digit($categoryId) ) {
 			throw new InvalidDataException('Invalid category ID');
 		}
 		$this->constraints[]="categoryId = $categoryId";
