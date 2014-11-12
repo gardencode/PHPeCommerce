@@ -2,7 +2,7 @@
 class SearchView extends AbstractView {
 
     public function prepare() {
-        $products = $this->getModel()->getProducts();
+        $products = $this->getModel()->getSearchSql();
         $content="<table class='table table-hover table-responsive table-bordered'>\n".
             "<tr><th>Category Id</th>
                  <th>Product Name</th>
