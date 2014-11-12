@@ -7,7 +7,16 @@ class SearchController extends AbstractController {
 	}
 
 	protected function getView($isPostback) {
-		echo '<h1>This page is not yet implemented</h1><br/><br/>';
+		$db=$this->getDB();
+		$model = new CustomersModel($db);
+		
+		
+		$view=new CustomersView();
+		$view->setModel($model);
+		$view->setTemplate('html/masterPage.html');
+		$view->setTemplateField('pagename','People');
+		$view->prepare();
+		return $view;
 	}
 }	
 ?>
