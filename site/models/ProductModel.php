@@ -117,10 +117,6 @@ class ProductModel extends AbstractEntityModel {
 	protected function getLoadSql($id) {
 		return 	"select categoryId, name, description, price, image from product where id = $id";
 	}
-	//Load the search and search from name or description
-	 protected function getSearchSql($query) {
-        return "select categoryId, name, description, price, image from product where name like %$query% or description like %$query% order by name, description";
-    }
 	
 	// sql to insert instance data into database
 	protected function getInsertionSql() {	
