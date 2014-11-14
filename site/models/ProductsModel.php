@@ -34,7 +34,6 @@ class ProductsModel extends AbstractModel {
 		$this->constraints = array();
 		$limit=null;
 	}
-	
 	public function setCategoryFilter ($categoryId) {
 		if (!is_int($categoryId) && !ctype_digit($categoryId) ) {
 			throw new InvalidDataException('Invalid category ID');
@@ -42,13 +41,21 @@ class ProductsModel extends AbstractModel {
 		$this->constraints[]="categoryId = $categoryId";
 		$this->products=null;
 	}
-	
 	public function setNameMatch ($text) {
 		$safeText = $this->getDB()->escape($text);
 		$this->constraints[]="name like '%$safeText%'";
 		$this->products=null;
 	}
-
+	public function setDescriptionMatch ($text) {
+		$safeText = $this->getDB()->escape($text);
+		$this->constraints[]="description like '%$safeText%'";
+		$this->products=null;
+	}
+	public function setNameOrDescriptionMatch ($text) {
+		$safeText = $this->getDB()->escape($text);
+		$this->constraints[]="name like '%$safeText%' or description like '%$safeText%'";
+		$this->products=null;
+	}
 	public function setPriceRange ($minimum=null, $maximum=null) {
 		if ($minimum === null && $maximum === null) {
 			return;
@@ -68,7 +75,6 @@ class ProductsModel extends AbstractModel {
 		}
 		$this->products=null;
 	}
-
 	public function setLimit ($limit, $offset=null) {
 		if (!is_numeric ($limit)) {
 			throw new InvalidDataException('Invalid limit value');
@@ -83,7 +89,6 @@ class ProductsModel extends AbstractModel {
 		}
 		$this->products=null;
 	}
-	
     public function getProducts() {
 		if ($this->products===null) {
 			$this->products = array();
@@ -91,7 +96,6 @@ class ProductsModel extends AbstractModel {
 		}
         return $this->products;
     }
-
     private function load() {
         $sql = "select id, categoryId, name, description, price, image from product";
 		if (count($this->constraints) > 0) {
