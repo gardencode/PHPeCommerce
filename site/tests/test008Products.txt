@@ -1,0 +1,7 @@
+{ 
+	"name": "Products Model class",
+	"author": "Mike Lopez",
+	"unitTest": "ProductsModelTest"
+}
+
+
