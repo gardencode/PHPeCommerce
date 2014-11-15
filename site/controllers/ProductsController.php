@@ -8,6 +8,7 @@ class ProductsController extends AbstractController {
     protected function getView($isPostback) {
         $db=$this->getDB();
         $model = new ProductsModel($db);
+		// set Filters here
 		
         // create output
         $view=new CustomerProductsView();
