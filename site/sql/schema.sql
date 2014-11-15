@@ -54,6 +54,26 @@ create table users (
 	primary key (id)
 ) engine=InnoDB;
 
+-- Orders --
+create table orders (
+    id           int NOT NULL auto_increment primary key,
+    streetNumber varchar(32),
+    streetName   varchar(32),
+    city      varchar(32),
+    postCode     varchar(32),
+    totalPrice      decimal(10,2)
+) engine=InnoDB;
+
+-- Orderlines --
+create table orderlines (
+  orderID    int NOT NULL,
+  productID  int NOT NULL,
+  quantity   varchar(5),
+  price      decimal(10,2) NOT NULL,
+  foreign key (orderId)  references orders (id),
+  foreign key (productId)  references product (id)
+) engine=InnoDB;
+
 -- Administrators
 create table administrator (
     adminId   int NOT NULL auto_increment primary key,

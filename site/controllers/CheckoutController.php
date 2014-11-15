@@ -35,9 +35,17 @@ class CheckoutController extends AbstractController {
                     //$total = cartModel->getTotalPrice
                     $totalPrice = 46.00;
 
-                    //todo
-                    //new orderModel($streetNumber, $streetName, $city, $postCode, $totalPrice);
-                    //orderModel->Save
+                    $db=$this->getDB();
+                    $order = new OrderModel($db);
+                    $order->setStreetNumber($streetNumber);
+                    $order->setStreetName($streetName);
+                    $order->setCity($city);
+                    $order->setPostCode($postCode);
+                    $order->setTotalPrice($totalPrice);
+                    $order->save();
+
+                    //foreach product in cart
+                    //do above to create an orderline
 
                     //todo
                     //cartModel->Empty
