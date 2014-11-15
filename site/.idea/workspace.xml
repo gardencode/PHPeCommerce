@@ -26,7 +26,7 @@
       <file leaf-file-name="CheckoutController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/CheckoutController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="40" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.6567329" vertical-offset="0" max-vertical-offset="1173">
+            <state line="35" column="40" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.3620309" vertical-offset="267" max-vertical-offset="1173">
               <folding />
             </state>
           </provider>
@@ -35,7 +35,7 @@
       <file leaf-file-name="OrderModel.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/OrderModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="6" selection-start="4824" selection-end="4824" vertical-scroll-proportion="-98.73077" vertical-offset="0" max-vertical-offset="3128">
+            <state line="151" column="6" selection-start="4824" selection-end="4824" vertical-scroll-proportion="-83.46154" vertical-offset="397" max-vertical-offset="3128">
               <folding>
                 <marker date="1416093549298" expanded="true" signature="3348:3440" placeholder="select stree..orders..." />
               </folding>
@@ -633,10 +633,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/CheckoutView.php">
+    <entry file="file://$PROJECT_DIR$/models/OrderModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="30" selection-start="454" selection-end="454" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="663">
-          <folding />
+        <state line="151" column="6" selection-start="4824" selection-end="4824" vertical-scroll-proportion="-83.46154" vertical-offset="397" max-vertical-offset="3128">
+          <folding>
+            <marker date="1416093549298" expanded="true" signature="3348:3440" placeholder="select stree..orders..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -647,18 +649,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/OrderModel.php">
+    <entry file="file://$PROJECT_DIR$/views/CheckoutView.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="6" selection-start="4824" selection-end="4824" vertical-scroll-proportion="-98.73077" vertical-offset="0" max-vertical-offset="3128">
-          <folding>
-            <marker date="1416093549298" expanded="true" signature="3348:3440" placeholder="select stree..orders..." />
-          </folding>
+        <state line="17" column="30" selection-start="454" selection-end="454" vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="663">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/CheckoutController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="40" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.6567329" vertical-offset="0" max-vertical-offset="1173">
+        <state line="35" column="40" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.3620309" vertical-offset="267" max-vertical-offset="1173">
           <folding />
         </state>
       </provider>
