@@ -1,5 +1,5 @@
 <?php
-//todo ASSERTIONS
+
 class OrderModel extends AbstractEntityModel {
     // instance data
     private $streetNumber;
@@ -45,27 +45,27 @@ class OrderModel extends AbstractEntityModel {
         Setters of private data (all have validators)
     */
     public function setStreetNumber($value){
-//        $this->assertNoError($this->errorInCategoryId($this->getDB(),$value));
+        $this->assertNoError($this->errorInStreetNumber($this->getDB(),$value));
         $this->streetNumber = $value;
         $this->didChange();
     }
     public function setStreetName($value){
-//        $this->assertNoError($this->errorInName($value));
+        $this->assertNoError($this->errorInStreetName($value));
         $this->streetName = $value;
         $this->didChange();
     }
     public function setCity($value){
-//        $this->assertNoError($this->errorInDescription($value));
+        $this->assertNoError($this->errorInCity($value));
         $this->city = $value;
         $this->didChange();
     }
     public function setPostCode($value){
-//        $this->assertNoError($this->errorInPrice($value));
+        $this->assertNoError($this->errorInPostCode($value));
         $this->postCode = $value;
         $this->didChange();
     }
     public function setTotalPrice($value){
-//        $this->assertNoError($this->errorInPrice($value));
+        $this->assertNoError($this->errorInTotalPrice($value));
         $this->totalPrice = $value;
         $this->didChange();
     }
@@ -134,23 +134,20 @@ class OrderModel extends AbstractEntityModel {
     /*
         Static validation routines
     */
-    public static function errorInCategoryId(IDatabase $db, $value) {
-        if (CategoryModel::isExistingId($db, $value)) {
-            return null;
-        }
-        return "Invalid category ID ($value)";
+    public static function errorInStreetNumber($value) {
+        return self::errorInRequiredField('Street Number',$value,32);
     }
-    public static function errorInName($value) {
-        return self::errorInRequiredField('Product name',$value,50);
+    public static function errorInStreetName($value) {
+        return self::errorInRequiredField('Street Name',$value,32);
     }
-    public static function errorInDescription($value) {
-        return self::errorInRequiredField('Description',$value,300);
+    public static function errorInCity($value) {
+        return self::errorInRequiredField('City',$value,32);
     }
-    public static function errorInPrice($value) {
-        return self::errorInRequiredNumericField('Price', $value, 2, 0.00, 99999999.99);
+    public static function errorInPostCode($value) {
+        return self::errorInRequiredField('Post Code',$value,32);
     }
-    public static function errorInImage($value) {
-        return self::errorInRequiredField('Image',$value,100);
+    public static function errorInTotalPrice($value) {
+        return self::errorInRequiredNumericField('Total Price', $value, 2, 0.00, 99999999.99);
     }
     public static function isExistingId($db,$id) {
         return self::checkExistingId($db,$id,

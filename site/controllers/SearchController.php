@@ -7,8 +7,9 @@ class SearchController extends AbstractController {
 	}
 
 	protected function getView($isPostback) {
-		$uri = $this->getUri();
-		$part = $uri->getPart();
+        echo '<h1>This page is not yet implemented</h1><br/><br/>';
+//		$uri = $this->getUri();
+//		$part = $uri->getPart();
 	}
 	/*1) if part is blank, ask the user to complete a search form. On post-back, 
 	carry out the search as below

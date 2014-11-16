@@ -1,29 +1,30 @@
 <?php
 class CheckoutView extends AbstractView {
+
     public function prepare() {
-        //dummy data
-        $productName = "Toaster";
-        $productPrice = 20.99;
-        //todo
-        //    if (cart is empty) {
-        //        inform user that cart is empty
-        //    } else {
-        //      foreach item in cart {
-        $content = '<table border=1>' .
-            '<tr>' .
-            '<th>Product</th>' .
-            '<th>Price</th>' .
-            '</tr>' .
-            '<tr>' .
-            '<td>' . $productName . '</td>' .
-            '<td>' . $productPrice . '</td>' .
-            '</tr>' .
-            '</table>' .
-            '<br>' .
-            '<a>Total: ' . $productPrice .
-            '<br>';
-        //end foreach
-        $content .= '<a href="##site##checkout/delivery">Confirm purchase</a>';
+
+        $quantity = $this->getModel()->getCount();
+        $items = array();
+        for ($i = 0; $i < $quantity; $i++) {
+            array_push($items, $this->getModel()->getItemAt($i));
+        }
+        if (count($items) == 0) {
+            $content = "<p>No items to check out.</p>";
+        } else {
+            $content= '<table border=1>' .
+                      '<tr>' .
+                      '<th>Item Code</th>' .
+                      '<th>Quantity</th>' .
+                      '<th>Price</th>' .
+                      '<th>Total</th>' .
+                      '</tr>';
+            foreach ($items as $item) {
+                $content .= '<tr><td>'. $item->getItemCode() . '</td><td>'.$item->getQuantity().' </td><td>$'.$item->getPrice().' </td><td>$'.$item->getTotal().' </td></tr>';
+            }
+            $content .= '</table>';
+            $content .= '<p>Total price: $' . $this->getModel()->getTotalPrice() . '</p>';
+            $content .= '<a href="##site##checkout/delivery">Confirm purchase</a>';
+        }
         $this->setTemplateField('content',$content);
     }
 }

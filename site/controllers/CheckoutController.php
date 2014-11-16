@@ -10,7 +10,9 @@ class CheckoutController extends AbstractController {
         $path=$uri->getPart();
         switch ($path) {
             case '':
+                $model = new ShoppingCartModel($context);
                 $view = new CheckoutView();
+                $view->setModel($model);
                 $view->setTemplate('html/masterPage.html');
                 $view->setTemplateField('pagename','Checkout');
                 return $view;
@@ -25,10 +27,8 @@ class CheckoutController extends AbstractController {
                     $streetName=$this->getInput('street_name');
                     $city=$this->getInput('city');
                     $postCode=$this->getInput('post_code');
-                    //todo
-                    //dummy data will be used for now
-                    //$total = cartModel->getTotalPrice
-                    $totalPrice = 46.00;
+                    $cart = new ShoppingCartModel($context);
+                    $totalPrice = $cart->getTotalPrice();
                     $db=$this->getDB();
                     $order = new OrderModel($db);
                     $order->setStreetNumber($streetNumber);
@@ -40,7 +40,7 @@ class CheckoutController extends AbstractController {
                     //foreach product in cart
                     //do above to create an orderline
                     //todo
-                    //cartModel->Empty
+                    $cart->delete();
                 }
                 $view = new CheckoutFinalView();
                 $view->setTemplate('html/masterPage.html');
