@@ -8,15 +8,12 @@ class ProductsController extends AbstractController {
     protected function getView($isPostback) {
         $db=$this->getDB();
         $model = new ProductsModel($db);
-<<<<<<< HEAD
 		// set Filters here
 		$text = "select id, categoryId, name, description, price, image from product";
 		
 		$searchTerm = $model->setDescriptionMatch($text);
 		$searchTerm->getproducts();
 
-=======
->>>>>>> parent of 98ffe63... Update of David's products controller and view.
 		
         // create output
         $view=new CustomerProductsView();

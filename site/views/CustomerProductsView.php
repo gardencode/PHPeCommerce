@@ -1,24 +1,27 @@
 <?php
 class CustomerProductsView extends AbstractView {
+	private $pageTemplate;
+	private $panelTemplate;
 
     public function prepare() {
+		$this->pageTemplate=file_get_contents('html/customerProducts.html');
+		$this->panelTemplate=file_get_contents('html/productPanel.html');	
         $products = $this->getModel()->getProducts();
-        $content="<table class='table table-hover table-responsive table-bordered'>\n".
-            "<tr><th>Product Name</th>
-                 <th>Product Description</th>
-                 <th>Product Price</th>
-                 <th>Product Image</th>
-                  <th>Action</th>
-            </tr>\n";
+		$productPanels='';
         foreach ($products as $product) {
-            $name='<tr><td>'.$product->getName(). '</td><td>'.$product->getDescription().'</td><td>'.$product->getPrice().' </td><td>'.
-                '<img src=./images/'.$product->getImage().'></td>';
-            $action='&nbsp;<button class="btn btn-large btn-info" type="button"><a href="##site##cart/add/' . $product->getID() . '">Add to Cart</a></button>';
-            $content.="<tr><td>$name</td><td>$action</td></tr>\n";
+            $productPanels.=$this->getProductPanel($product);
         }
-        $content.="</table>\n";
-
+    	$content=str_replace('##productPanels##',$productPanels,$this->pageTemplate);
         $this->setTemplateField('content',$content);
     }
+	private function getProductPanel($product) {
+		$panel = $this->panelTemplate;
+		$panel=str_replace('##id##',			$product->getId(),$panel);
+		$panel=str_replace('##name##',			$product->getName(),$panel);
+		$panel=str_replace('##description##',	$product->getDescription(),$panel);
+		$panel=str_replace('##price##',			$product->getPrice(),$panel);
+		$panel=str_replace('##image##',			$product->getImage(),$panel);	
+		return $panel;
+	}
 }
 ?>
