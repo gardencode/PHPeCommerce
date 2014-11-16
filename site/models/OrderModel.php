@@ -45,7 +45,7 @@ class OrderModel extends AbstractEntityModel {
         Setters of private data (all have validators)
     */
     public function setStreetNumber($value){
-        $this->assertNoError($this->errorInStreetNumber($this->getDB(),$value));
+        $this->assertNoError($this->errorInStreetNumber($value));
         $this->streetNumber = $value;
         $this->didChange();
     }
