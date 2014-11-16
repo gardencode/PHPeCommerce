@@ -12,7 +12,7 @@ class ProductsController extends AbstractController {
 		$text = "select id, categoryId, name, description, price, image from product";
 		
 		$searchTerm = $model->setDescriptionMatch($text);
-		$searchTerm->getproduts();
+		$searchTerm->getproducts();
 
 		
         // create output
