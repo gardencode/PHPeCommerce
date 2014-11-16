@@ -1,12 +1,9 @@
 <?php
-
 class CheckoutView extends AbstractView {
-
     public function prepare() {
         //dummy data
         $productName = "Toaster";
         $productPrice = 20.99;
-
         //todo
         //    if (cart is empty) {
         //        inform user that cart is empty
@@ -26,9 +23,7 @@ class CheckoutView extends AbstractView {
             '<a>Total: ' . $productPrice .
             '<br>';
         //end foreach
-
         $content .= '<a href="##site##checkout/delivery">Confirm purchase</a>';
         $this->setTemplateField('content',$content);
     }
-
 }

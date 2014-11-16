@@ -1,13 +1,24 @@
 <?php
-
 class ProductsController extends AbstractController {
+    public function __construct($context) {
+        parent::__construct($context);
+    }
+    protected function getView($isPostback) {
+        $db=$this->getDB();
+        $model = new ProductsModel($db);
+        // set Filters here
+        $text = "select id, categoryId, name, description, price, image from product";
 
-	public function __construct($context) {
-		parent::__construct($context);
-	}
+        $searchTerm = $model->setDescriptionMatch($text);
+        $searchTerm->getproducts();
 
-	protected function getView($isPostback) {
-		echo '<h1>This page is not yet implemented</h1><br/><br/>';
-	}
-}	
+        // create output
+        $view=new CustomerProductsView();
+        $view->setModel($model);
+        $view->setTemplate('html/masterPage.html');
+        $view->setTemplateField('pagename','Products');
+        $view->prepare();
+        return $view;
+    }
+}
 ?>

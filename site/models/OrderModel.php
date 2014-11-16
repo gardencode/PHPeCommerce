@@ -1,7 +1,5 @@
 <?php
-
 //todo ASSERTIONS
-
 class OrderModel extends AbstractEntityModel {
     // instance data
     private $streetNumber;
@@ -9,12 +7,10 @@ class OrderModel extends AbstractEntityModel {
     private $city;
     private $postCode;
     private $totalPrice;
-
     // standard constructor
     public function __construct($db, $orderId = null) {
         parent::__construct($db, $orderId);
     }
-
     // NB constructor with many parameters changed to factory pattern below
     public static function createFromFields(IDatabase $db,$orderId,$streetNumber,$streetName,$city,$postCode, $totalPrice) {
         $model = new OrderModel ($db);
@@ -27,7 +23,6 @@ class OrderModel extends AbstractEntityModel {
         $model->didChange(false);
         return $model;
     }
-
     /*
         Getters of private data
     */
@@ -46,11 +41,9 @@ class OrderModel extends AbstractEntityModel {
     public function getTotalPrice(){
         return $this->totalPrice;
     }
-
     /*
         Setters of private data (all have validators)
     */
-
     public function setStreetNumber($value){
 //        $this->assertNoError($this->errorInCategoryId($this->getDB(),$value));
         $this->streetNumber = $value;
@@ -61,7 +54,6 @@ class OrderModel extends AbstractEntityModel {
         $this->streetName = $value;
         $this->didChange();
     }
-
     public function setCity($value){
 //        $this->assertNoError($this->errorInDescription($value));
         $this->city = $value;
@@ -77,12 +69,10 @@ class OrderModel extends AbstractEntityModel {
         $this->totalPrice = $value;
         $this->didChange();
     }
-
     /* 		==============
             must overrides
             ==============
     */
-
     // 	set default values for instance data
     // (required fields should be set to null)
     protected function init() {
@@ -92,7 +82,6 @@ class OrderModel extends AbstractEntityModel {
         $this->postCode=null;
         $this->totalPrice=null;
     }
-
     // load instance data from database
     protected function loadData($row) {
         $this->streetNumber=$row['streetNumber'];
@@ -101,7 +90,6 @@ class OrderModel extends AbstractEntityModel {
         $this->postCode=$row['postCode'];
         $this->totalPrice=$row['totalPrice'];
     }
-
     // return false if any required field is null
     protected function allRequiredFieldsArePresent() {
         return $this->streetNumber !== null &&
@@ -110,12 +98,10 @@ class OrderModel extends AbstractEntityModel {
         $this->postCode !== null &&
         $this->totalPrice !== null;
     }
-
     // load instance data from database
     protected function getLoadSql($orderId) {
         return 	"select streetNumber, streetName, city, postCode, totalPrice, from orders where id = $orderId";
     }
-
     // sql to insert instance data into database
     protected function getInsertionSql() {
         $streetNumber = $this->safeSqlNumber($this->streetNumber);
@@ -123,11 +109,9 @@ class OrderModel extends AbstractEntityModel {
         $city = $this->safeSqlString($this->city);
         $postCode = $this->safeSqlString($this->postCode);
         $totalPrice = $this->safeSqlNumber($this->totalPrice);
-
         return "insert into orders(streetNumber, streetName, city, postCode, totalPrice) ".
         "values ($streetNumber, $streetName, $city, $postCode, $totalPrice)";
     }
-
     // sql to update database record from instance data
     protected function getUpdateSql() {
         $streetNumber = $this->safeSqlNumber($this->streetNumber);
@@ -135,7 +119,6 @@ class OrderModel extends AbstractEntityModel {
         $city = $this->safeSqlString($this->city);
         $postCode = $this->safeSqlString($this->postCode);
         $totalPrice = $this->safeSqlNumber($this->totalPrice);
-
         return "update orders set ".
         "streetNumber=$streetNumber, ".
         "streetName=$streetName, ".
@@ -148,11 +131,9 @@ class OrderModel extends AbstractEntityModel {
     protected function getDeletionSql() {
         return 'delete from orders where id = '.$this->getId();
     }
-
     /*
         Static validation routines
     */
-
     public static function errorInCategoryId(IDatabase $db, $value) {
         if (CategoryModel::isExistingId($db, $value)) {
             return null;

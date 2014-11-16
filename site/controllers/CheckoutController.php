@@ -1,17 +1,13 @@
 <?php
 
 class CheckoutController extends AbstractController {
-
-	public function __construct($context) {
-		parent::__construct($context);
-	}
-
-	protected function getView($isPostback) {
-
+    public function __construct($context) {
+        parent::__construct($context);
+    }
+    protected function getView($isPostback) {
         $context = $this->getContext();
         $uri=$context->getURI();
         $path=$uri->getPart();
-
         switch ($path) {
             case '':
                 $view = new CheckoutView();
@@ -29,12 +25,10 @@ class CheckoutController extends AbstractController {
                     $streetName=$this->getInput('street_name');
                     $city=$this->getInput('city');
                     $postCode=$this->getInput('post_code');
-
                     //todo
                     //dummy data will be used for now
                     //$total = cartModel->getTotalPrice
                     $totalPrice = 46.00;
-
                     $db=$this->getDB();
                     $order = new OrderModel($db);
                     $order->setStreetNumber($streetNumber);
@@ -43,10 +37,8 @@ class CheckoutController extends AbstractController {
                     $order->setPostCode($postCode);
                     $order->setTotalPrice($totalPrice);
                     $order->save();
-
                     //foreach product in cart
                     //do above to create an orderline
-
                     //todo
                     //cartModel->Empty
                 }
@@ -57,7 +49,6 @@ class CheckoutController extends AbstractController {
             default:
                 throw new InvalidRequestException ('No such page');
         }
-	}
-
-}	
+    }
+}
 ?>

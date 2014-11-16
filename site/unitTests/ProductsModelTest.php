@@ -15,13 +15,13 @@ class ProductsModelTest extends UnitTest {
 	
 		$batch=array();
 		$batch[] = "Insert into product (categoryId, name, description, price, image)".
-		           "values (1,'Name aaa','desc',1.00,'x');";
+		           "values (1,'Name aaa','desc aaa',1.00,'x');";
 		$batch[] = "Insert into product (categoryId, name, description, price, image)".
-		           "values (1,'Name bbb','desc',2.00,'x');";
+		           "values (1,'Name bbb','desc aaa',2.00,'x');";
 		$batch[] = "Insert into product (categoryId, name, description, price, image)".
-		           "values (1,'Name bbb','desc',3.00,'x');";
+		           "values (1,'Name bbb','desc aaa',3.00,'x');";
 		$batch[] = "Insert into product (categoryId, name, description, price, image)".
-		           "values (1,'Name ddd','desc',1.00,'x');";
+		           "values (1,'Name ddd','desc aaa',1.00,'x');";
 		$batch[] = "Insert into product (categoryId, name, description, price, image)".
 		           "values (1,'Name aaa','desc',2.00,'x');";
 		$batch[] = "Insert into product (categoryId, name, description, price, image)".
@@ -159,6 +159,27 @@ class ProductsModelTest extends UnitTest {
 		$products = $model->getProducts();
 		$this->assertEqual(count($products),1,"Category 1 and aaa and 2 or more");		
 	}	
+	
+	protected function testWildcards() {
+		$context=$this->getContext();
+		$db=$context->getDB();
+
+		$model = new ProductsModel($db);
+		$model->setDescriptionMatch('aaa');
+		$products = $model->getProducts();
+		$this->assertEqual(count($products),4,"Description match");
+	
+		$model = new ProductsModel($db);
+		$model->setNameMatch('aaa');
+		$products = $model->getProducts();
+		$this->assertEqual(count($products),3,"Name match");
+		
+		$model = new ProductsModel($db);
+		$model->setNameOrDescriptionMatch('aaa');
+		$products = $model->getProducts();
+		$this->assertEqual(count($products),6,"Name or description match");
+	}	
+
 }
 ?>
 	

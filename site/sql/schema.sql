@@ -4,64 +4,64 @@ use coolshop;
 
 -- Categories --
 create table category (
-    id int NOT NULL auto_increment primary key,
-    name varchar(20) NOT NULL
+  id int NOT NULL auto_increment primary key,
+  name varchar(20) NOT NULL
 )  engine=innodb;
- 
+
 -- Products -- 
 create table product (
-    id          int NOT NULL auto_increment primary key,
-    categoryId  int NOT NULL,
-    name        varchar(50) NOT NULL,
-    description varchar(300) NOT NULL,
-    price       decimal(10,2) NOT NULL,
-    image       varchar(100),
-    foreign key (categoryId)  references category (id)
+  id          int NOT NULL auto_increment primary key,
+  categoryId  int NOT NULL,
+  name        varchar(50) NOT NULL,
+  description varchar(300) NOT NULL,
+  price       decimal(10,2) NOT NULL,
+  image       varchar(100),
+  foreign key (categoryId)  references category (id)
 )  engine=innodb;
 
 -- Customers --
 create table customer (
-    id          int NOT NULL auto_increment primary key,
-    image       varchar(50),
-    firstName   varChar(25),
-    lastName    varChar(25),
-    userId      varChar(25),
-    email       varChar(25),
-    address     varChar(25),
-    city        varChar(50),
-    phoneNumber varChar(35)
+  id          int NOT NULL auto_increment primary key,
+  image       varchar(50),
+  firstName   varChar(25),
+  lastName    varChar(25),
+  userId      varChar(25),
+  email       varChar(25),
+  address     varChar(25),
+  city        varChar(50),
+  phoneNumber varChar(35)
 )  engine=InnoDB;
 
 -- Customers --
 create table customers (
-    id          int NOT NULL auto_increment primary key,
-    name   		varchar(40) NOT NULL,
-    address     varchar(200) NOT NULL,
-    email       varchar(64),
-    phone 		varchar(30)
+  id          int NOT NULL auto_increment primary key,
+  name   		varchar(40) NOT NULL,
+  address     varchar(200) NOT NULL,
+  email       varchar(64),
+  phone 		varchar(30)
 )  engine=InnoDB;
 
 
 -- Users --
 create table users (
-	id        int NOT NULL auto_increment,
-    firstname varchar(32),
-    lastname  varchar(32),
-    email     varchar(32),
-    username  varchar(32),
-    password  varchar(32),
-    modified  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	primary key (id)
+  id        int NOT NULL auto_increment,
+  firstname varchar(32),
+  lastname  varchar(32),
+  email     varchar(32),
+  username  varchar(32),
+  password  varchar(32),
+  modified  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  primary key (id)
 ) engine=InnoDB;
 
 -- Orders --
 create table orders (
-    id           int NOT NULL auto_increment primary key,
-    streetNumber varchar(32),
-    streetName   varchar(32),
-    city      varchar(32),
-    postCode     varchar(32),
-    totalPrice      decimal(10,2)
+  id           int NOT NULL auto_increment primary key,
+  streetNumber varchar(32),
+  streetName   varchar(32),
+  city      varchar(32),
+  postCode     varchar(32),
+  totalPrice      decimal(10,2)
 ) engine=InnoDB;
 
 -- Orderlines --
@@ -76,10 +76,10 @@ create table orderlines (
 
 -- Administrators
 create table administrator (
-    adminId   int NOT NULL auto_increment primary key,
-    userId    varChar(25) NOT NULL,
-    password  varchar(75),
-    salt      varchar(75)
+  adminId   int NOT NULL auto_increment primary key,
+  userId    varChar(25) NOT NULL,
+  password  varchar(75),
+  salt      varchar(75)
 )  engine=InnoDB;
 
 -- Customers
@@ -100,8 +100,8 @@ INSERT INTO customer Values(null,'cainton.png','Anthony', 'Freess', 'anthonyf201
 INSERT INTO customer Values(null,'cainton.png','Bill', 'Bani', 'billb2014','eatjack@hotmail.com', '98 Aranui Street','Christchurch', '0277267785');
 
 -- Administrators
-INSERT INTO administrator Values(null,'Admin2014', '4f8ee01c497c8a7d6f44334dc15bd44fe5acea9aed07f67e34a22ec490cfced1', 
- 's*vl%/?s8b*b4}b/w%w4');
+INSERT INTO administrator Values(null,'Admin2014', '4f8ee01c497c8a7d6f44334dc15bd44fe5acea9aed07f67e34a22ec490cfced1',
+                                 's*vl%/?s8b*b4}b/w%w4');
 
 
 insert into category values (null,'Electronics');

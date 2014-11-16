@@ -14,7 +14,7 @@ class ProductModel extends AbstractEntityModel {
     private $image;
     
 	// standard constructor
-	public function __construct($db, $id=null) {
+	public function __construct(IDatabase $db, $id=null) {
 		parent::__construct($db,$id);
 	}
 
@@ -30,7 +30,6 @@ class ProductModel extends AbstractEntityModel {
         $model->didChange(false);
 		return $model; 
     }
-
 	/*	
 		Getters of private data
 	*/
@@ -49,11 +48,9 @@ class ProductModel extends AbstractEntityModel {
     public function getImage(){
         return $this->image;
     }
-
 	/*	
 		Setters of private data (all have validators)
 	*/
-
     public function setCategoryId($value){
 		$this->assertNoError($this->errorInCategoryId($this->getDB(),$value));
         $this->categoryId = $value;
@@ -64,7 +61,6 @@ class ProductModel extends AbstractEntityModel {
         $this->name = $value;
         $this->didChange();
     }
-
     public function setDescription($value){
 		$this->assertNoError($this->errorInDescription($value));
         $this->description = $value;
@@ -95,7 +91,6 @@ class ProductModel extends AbstractEntityModel {
 		$this->price=null;
 		$this->image=null;
 	}
-
 	// load instance data from database
 	protected function loadData($row) {
 		$this->categoryId=$row['categoryId'];
@@ -104,7 +99,6 @@ class ProductModel extends AbstractEntityModel {
 		$this->price=$row['price'];
 		$this->image=$row['image'];	
 	}
-
 	// return false if any required field is null
 	protected function allRequiredFieldsArePresent() {
 		return $this->categoryId !== null && 
@@ -112,12 +106,10 @@ class ProductModel extends AbstractEntityModel {
 			   $this->description !== null && 
 			   $this->price !== null;
 	}
-	
 	// load instance data from database
 	protected function getLoadSql($id) {
 		return 	"select categoryId, name, description, price, image from product where id = $id";
 	}
-	
 	// sql to insert instance data into database
 	protected function getInsertionSql() {	
 		$categoryId=$this->safeSqlNumber($this->categoryId);
@@ -129,7 +121,6 @@ class ProductModel extends AbstractEntityModel {
 		return "insert into product(categoryId, name, description, price, image) ".
 		       "values ($categoryId, $name, $description, $price, $image)";	
 	}	
-	
 	// sql to update database record from instance data
 	protected function getUpdateSql() {
 		$categoryId=$this->safeSqlNumber($this->categoryId);
@@ -150,11 +141,10 @@ class ProductModel extends AbstractEntityModel {
 	protected function getDeletionSql() {
 	     return 'delete from product where id = '.$this->getId();
 	}
-
-	/*
+	/*  ==========================
 		Static validation routines
+		==========================
 	*/
-	
 	public static function errorInCategoryId(IDatabase $db, $value) {
 		if (CategoryModel::isExistingId($db, $value)) {
 			return null;
