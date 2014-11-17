@@ -7,17 +7,31 @@ class SearchController extends AbstractController {
 	}
 
 	protected function getView($isPostback) {
+		$db=$this->getDB();
+        $model = new ProductsModel($db);
+		
 		$uri = $this->getUri();
 		$part = $uri->getPart();
+		//Part if blank
+		if(is_null($part)){
+
+		}
+		elseif ($part>0) {
+			# code...
+		}
+		else{// create output
+			
+        $view=new CustomerProductsView();
+        $view->setModel($model);
+        $view->setTemplate('html/masterPage.html');
+        $view->setTemplateField('pagename','Products');
+	    $view->prepare();
+	    return $view;
+
+		}
+
+		
 	}
-	/*1) if part is blank, ask the user to complete a search form. On post-back, 
-	carry out the search as below
-
-	2) if the part is a non-negative integer, treat it as a category ID 
-	and set the category ID filter. If this is followed by a blank part you're done, 
-	otherwise, set the match filter to the search term
-
-	3) if the part is the word 'all', get the next part and use it as the match filter.*/
-
+	
 }	
 
