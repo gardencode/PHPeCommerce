@@ -5,33 +5,39 @@ class SearchController extends AbstractController {
 	public function __construct($context) {
 		parent::__construct($context);
 	}
-
 	protected function getView($isPostback) {
-		
-		$uri = $this->getUri();
-		$part = $uri->getPart();
-		//Part if blank
-		if(is_null($part)){
-			echo "Please fill in the search";
+		if ($isPostback) {
+			return createProductsView();
+		} else {
+			return createSearchFormView();
 		}
-		elseif ($part>0) {
-			$db=$this->getDB();
-        	$model = new ProductsModel($db);
-			
-		}
-		else{// create output
-
-	        $view=new CustomerProductsView();
-	        $view->setModel($model);
-	        $view->setTemplate('html/masterPage.html');
-	        $view->setTemplateField('pagename','Products');
-		    $view->prepare();
-		    return $view;
-
-		}
-
-		
 	}
-	
+	private function createSearchFormView() {
+		// return a view that displays a form that will
+		// 1) post back to this controller (##site##/search)
+		// 2) have an input field named "term"
+		// 3) have a dropdown list for categories with a name of "category",
+	}
+	private function createProductsView() {
+		$db=$this->getDB();
+        $model = new ProductsModel($db);
+		
+		// add filter for term (if specified)
+		$term = $this->getInput('term');
+		if ($term!==null) {
+			$model->setNameOrDescriptionMatch($term);
+		}
+		// add filter for category if specified
+		$category = $this->getInput('category');
+		if ($category!==null && $category>0) {
+			$model->setCategoryFilter($category);
+		}
+		
+		$view=new CustomerProductsView();
+		$view->setModel($model);
+		$view->setTemplate('html/masterPage.html');
+		$view->setTemplateField('pagename','Products');
+		$view->prepare();
+		return $view;
+	}
 }	
-
