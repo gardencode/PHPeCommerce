@@ -8,9 +8,9 @@ class CheckoutController extends AbstractController {
         $context = $this->getContext();
         $uri=$context->getURI();
         $path=$uri->getPart();
+        $model = new ShoppingCartModel($context);
         switch ($path) {
             case '':
-                $model = new ShoppingCartModel($context);
                 $view = new CheckoutView();
                 $view->setModel($model);
                 $view->setTemplate('html/masterPage.html');
@@ -28,18 +28,27 @@ class CheckoutController extends AbstractController {
                     $city=$this->getInput('city');
                     $postCode=$this->getInput('post_code');
                     $cart = new ShoppingCartModel($context);
-                    $totalPrice = $cart->getTotalPrice();
                     $db=$this->getDB();
                     $order = new OrderModel($db);
                     $order->setStreetNumber($streetNumber);
                     $order->setStreetName($streetName);
                     $order->setCity($city);
                     $order->setPostCode($postCode);
-                    $order->setTotalPrice($totalPrice);
                     $order->save();
-                    //foreach product in cart
-                    //do above to create an orderline
-                    //todo
+
+                    $quantity = $model->getCount();
+                    $items = array();
+                    for ($i = 0; $i < $quantity; $i++) {
+                        array_push($items, $model->getItemAt($i));
+                    }
+                    foreach ($items as $item) {
+                        $orderline = new OrderLineModel($db);
+                        $orderline->setOrderId($order->getID());
+                        $orderline->setProductId($item->getItemCode());
+                        $orderline->setQuantity($item->getQuantity());
+                        $orderline->save();
+                    }
+
                     $cart->delete();
                 }
                 $view = new CheckoutFinalView();

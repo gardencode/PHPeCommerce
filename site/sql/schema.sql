@@ -57,19 +57,21 @@ create table users (
 -- Orders --
 create table orders (
   id           int NOT NULL auto_increment primary key,
-  streetNumber varchar(32),
+  streetNumber varchar(4),
   streetName   varchar(32),
   city      varchar(32),
-  postCode     varchar(32),
-  totalPrice      decimal(10,2)
+  postCode     varchar(4),
+  orderDate date,
+  dateSent date,
+  trackingNumber varchar(20)
 ) engine=InnoDB;
 
 -- Orderlines --
 create table orderlines (
+  id         int NOT NULL auto_increment primary key,
   orderID    int NOT NULL,
   productID  int NOT NULL,
-  quantity   varchar(5),
-  price      decimal(10,2) NOT NULL,
+  quantity   int,
   foreign key (orderId)  references orders (id),
   foreign key (productId)  references product (id)
 ) engine=InnoDB;
