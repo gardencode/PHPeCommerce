@@ -122,7 +122,6 @@ class OrderModel extends AbstractEntityModel {
         $streetName = $this->safeSqlString($this->streetName);
         $city = $this->safeSqlString($this->city);
         $postCode = $this->safeSqlString($this->postCode);
-        $orderDate = $this->safeSqlDate($this->orderDate);
         $dateSent = $this->safeSqlDate($this->dateSent);
         $trackingNumber = $this->safeSqlNumber($this->trackingNumber);
         return "insert into orders(streetNumber, streetName, city, postCode, orderDate, dateSent, trackingNumber) ".
