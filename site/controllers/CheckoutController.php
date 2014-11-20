@@ -8,9 +8,11 @@ class CheckoutController extends AbstractController {
         $context = $this->getContext();
         $uri=$context->getURI();
         $path=$uri->getPart();
+        $model = new ShoppingCartModel($context);
         switch ($path) {
             case '':
                 $view = new CheckoutView();
+                $view->setModel($model);
                 $view->setTemplate('html/masterPage.html');
                 $view->setTemplateField('pagename','Checkout');
                 return $view;
@@ -25,22 +27,29 @@ class CheckoutController extends AbstractController {
                     $streetName=$this->getInput('street_name');
                     $city=$this->getInput('city');
                     $postCode=$this->getInput('post_code');
-                    //todo
-                    //dummy data will be used for now
-                    //$total = cartModel->getTotalPrice
-                    $totalPrice = 46.00;
+                    $cart = new ShoppingCartModel($context);
                     $db=$this->getDB();
                     $order = new OrderModel($db);
                     $order->setStreetNumber($streetNumber);
                     $order->setStreetName($streetName);
                     $order->setCity($city);
                     $order->setPostCode($postCode);
-                    $order->setTotalPrice($totalPrice);
                     $order->save();
-                    //foreach product in cart
-                    //do above to create an orderline
-                    //todo
-                    //cartModel->Empty
+
+                    $quantity = $model->getCount();
+                    $items = array();
+                    for ($i = 0; $i < $quantity; $i++) {
+                        array_push($items, $model->getItemAt($i));
+                    }
+                    foreach ($items as $item) {
+                        $orderline = new OrderLineModel($db);
+                        $orderline->setOrderId($order->getID());
+                        $orderline->setProductId($item->getItemCode());
+                        $orderline->setQuantity($item->getQuantity());
+                        $orderline->save();
+                    }
+
+                    $cart->delete();
                 }
                 $view = new CheckoutFinalView();
                 $view->setTemplate('html/masterPage.html');
