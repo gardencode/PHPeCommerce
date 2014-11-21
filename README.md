@@ -1,4 +1,4 @@
-PHPeCommerce
+COOLSHOP - A PHP Students Project for Ecommerce Web App
 ============
 
 CPIT Students Group work - Development of an E-Commerce website with PHP, JS and MySQL, HTML and CSS. We can also use JQuery.
